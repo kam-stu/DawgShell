@@ -14,6 +14,10 @@ int main() {
 
         // get the user's input
         input = CommandPrompt();
+        if (input == NULL) {
+            print("There was an error with input.  Please retry");
+            return 1;
+        }
 
         // parse the command line
         command = ParseCommandLine(input);

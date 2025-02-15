@@ -3,6 +3,7 @@
 // Display current working directory and return user input
 char* CommandPrompt() {
     char *wd = malloc(BUFFERSIZE);
+    char *input = malloc(BUFFERSIZE);
 
     // gets current working directory and sets it do wd array
     if (getcwd(wd, BUFFERSIZE) == NULL) {
@@ -13,7 +14,15 @@ char* CommandPrompt() {
 
     // prints working directory w/ "$" (prompt symbol)
     printf("%s%s", wd, PROMPT_SYMBOL);
-    return wd;
+
+    if (fgets(input, BUFFERSIZE, stdin) == NULL) {
+        perror("Failed to set input");
+        free(input);
+        return NULL;
+    }
+
+    printf("You entered: %s", input);
+    return input;
 }
 
 // testing function
