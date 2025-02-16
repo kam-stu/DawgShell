@@ -41,11 +41,5 @@ struct ShellCommand ParseCommandLine(char* input) {
 
 // testing parsing
 int main () {
-    struct ShellCommand cmd;
-
-    cmd = ParseCommandLine("ls -lh");
-
-    printf("Args: %s", cmd.args);
-    printf("I/O: %s \t %s", cmd.fileIn, cmd.fileOut);
 
 }
