@@ -1,31 +1,34 @@
 #include "ParseCommandLine.h"
 
 struct ShellCommand ParseCommandLine(char* input) {
-    char* token;
     struct ShellCommand cmd;
     cmd.fileIn = NULL;
     cmd.fileOut = NULL;
-    
+
+    char* token;
+    int arg_index = 0;
+
     token = strtok(input, " ");
+
+
     while (token != NULL) {
-        // case 1 (input needs to be redirected)
-        if (strcmp(token, "<") == 0){
-
-            // go to next token and set the fileIn to that token
-            if (token != NULL) {
-                token = strtok(NULL, " ");
-                cmd.fileIn = strdup(token);
-            }
-
-        // case 2 (output needs to be redirected)
-        } else if (strcmp(token, ">") == 0) {
-
-            // go to next token and set the fileOut to that token
-            if (token != NULL) {
-                token = strtok(NULL, " ");
-                cmd.fileOut = strdup(token);
-            }
+        // Handles input redirection
+        if (strcmp(token, "<") == 0) {
+            token = strtok(NULL, " ");
+            if (token) cmd.fileIn = strdup(token);
+        } 
+        // Handles output redirection
+        else if (strcmp(token, ">") == 0) {
+            token = strtok(NULL, " ");
+            if (token) cmd.fileOut = strdup(token);
+        } 
+        else {
+            cmd.args[arg_index++] = strdup(token);
         }
+        token = strtok(NULL, " ");
     }
+
+    // changes the last element in the array to NULL for execvp()
+    cmd.args[arg_index] = NULL;
     return cmd;
 }

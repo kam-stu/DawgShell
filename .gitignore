@@ -3,3 +3,5 @@ CommandPrompt
 Main.exe
 CommandPrompt.exe
 typescript
+ParseCommandLine
+ParseCommandLine.exe

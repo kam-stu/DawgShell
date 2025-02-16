@@ -5,27 +5,27 @@ char* CommandPrompt() {
     char *wd = malloc(BUFFERSIZE);
     char *input = malloc(BUFFERSIZE);
 
-    printf("Right before directory\n");
-    // gets current working directory and sets it do wd array
     if (getcwd(wd, BUFFERSIZE) == NULL) {
         perror("getcwd failed");
         free(wd);
-        return NULL;
+        free(input);
+        exit(1);
     }
 
-    // prints working directory w/ "$" (prompt symbol)
     printf("%s%s", wd, PROMPT_SYMBOL);
     fflush(stdout);
 
+    // gets the input
     if (fgets(input, BUFFERSIZE, stdin) == NULL) {
         perror("Failed to set input");
         free(input);
-        return NULL;
+        free(wd);
+        exit(1);
     }
 
-    // removes the newline character
+    // remove newline character
     input[strcspn(input, "\n")] = 0;
-    fflush(stdout);
     
+    free(wd);
     return input;
 }

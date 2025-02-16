@@ -1,14 +1,0 @@
-Script started on 2025-02-15 13:40:41-06:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="171" LINES="9"]
-[?2004h]0;grayson@GraysonLaptop: /mnt/c/Users/grays/OneDrive/Documents/DawgShell[01;32mgrayson@GraysonLaptop[00m:[01;34m/mnt/c/Users/grays/OneDrive/Documents/DawgShell[00m$ hello[K[K[K[K[K./commandPrompt 
-[?2004l/mnt/c/Users/grays/OneDrive/Documents/DawgShell$ hello bro
-You entered: hello bro
-[?2004h]0;grayson@GraysonLaptop: /mnt/c/Users/grays/OneDrive/Documents/DawgShell[01;32mgrayson@GraysonLaptop[00m:[01;34m/mnt/c/Users/grays/OneDrive/Documents/DawgShell[00m$ hi
-[?2004lCommand 'hi' not found, but can be installed with:
-sudo snap install hi
-[?2004h]0;grayson@GraysonLaptop: /mnt/c/Users/grays/OneDrive/Documents/DawgShell[01;32mgrayson@GraysonLaptop[00m:[01;34m/mnt/c/Users/grays/OneDrive/Documents/DawgShell[00m$ ./hi./hi./commandPrompt 
-[?2004l/mnt/c/Users/grays/OneDrive/Documents/DawgShell$ ls
-You entered: ls
-[?2004h]0;grayson@GraysonLaptop: /mnt/c/Users/grays/OneDrive/Documents/DawgShell[01;32mgrayson@GraysonLaptop[00m:[01;34m/mnt/c/Users/grays/OneDrive/Documents/DawgShell[00m$ exit
-[?2004lexit
-
-Script done on 2025-02-15 13:41:12-06:00 [COMMAND_EXIT_CODE="0"]
