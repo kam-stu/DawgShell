@@ -5,6 +5,7 @@ char* CommandPrompt() {
     char *wd = malloc(BUFFERSIZE);
     char *input = malloc(BUFFERSIZE);
 
+    printf("Right before directory\n");
     // gets current working directory and sets it do wd array
     if (getcwd(wd, BUFFERSIZE) == NULL) {
         perror("getcwd failed");
@@ -14,6 +15,7 @@ char* CommandPrompt() {
 
     // prints working directory w/ "$" (prompt symbol)
     printf("%s%s", wd, PROMPT_SYMBOL);
+    fflush(stdout);
 
     if (fgets(input, BUFFERSIZE, stdin) == NULL) {
         perror("Failed to set input");
@@ -21,19 +23,9 @@ char* CommandPrompt() {
         return NULL;
     }
 
-    printf("You entered: %s", input);
+    // removes the newline character
+    input[strcspn(input, "\n")] = 0;
+    fflush(stdout);
+    
     return input;
-}
-
-// testing function
-int main() {
-    char* input;
-
-    input = CommandPrompt();
-
-    if (input != NULL) {
-        free(input);
-    }
-
-    return 0;
 }

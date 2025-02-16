@@ -1,9 +1,6 @@
 #include "CommandPrompt.h"
-
-// Execute a shell command
-// Note the parameter is a ShellCommand struct
-void ExecuteCommand(struct ShellCommand command);
-
+#include "ParseCommandLine.h"
+#include "ExecutePrompt.h"
 
 int main() {
     char* input;
@@ -11,14 +8,14 @@ int main() {
 
     // repeatedly prompt the user for input
     for (;;) {
-
+        printf("test 1");
         // get the user's input
         input = CommandPrompt();
+        printf("%s", input);
         if (input == NULL) {
-            print("There was an error with input.  Please retry");
+            printf("There was an error with input.  Please retry");
             return 1;
         }
-
         // parse the command line
         command = ParseCommandLine(input);
 
