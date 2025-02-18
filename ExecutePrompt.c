@@ -31,22 +31,28 @@ void ExecuteCommand(struct ShellCommand command) {
 
         // Child process
         if (p == 0) {
+            // case 1:
+            // if output redirection occurs, redirects standard output
             if (command.fileOut) {
                 FILE* fileOut = fopen(command.fileOut, "w");
                 dup2(fileno(fileOut), 1);
                 fclose(fileOut);
             }
+            // case 2:
+            // if input redirection occurs, redirects standard input
             else if(command.fileIn) {
                 FILE* fileIn = fopen(command.fileIn, "r");
                 dup2(fileno(fileIn), 0);
                 fclose(fileIn);
             }
+            // command input by user does not exist
             int error = execvp(command.args[0], command.args);
             if (error) {
                 perror("Error 2");
                 exit(1);
             }
         }
+        // wait for process to finish
         wait(NULL);
         printf("\n");
     }
