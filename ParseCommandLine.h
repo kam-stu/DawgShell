@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include "Constants.h"
 
-// making the struct
+// struct design
 struct ShellCommand {
     char* args[BUFFERSIZE];
     char* fileIn;

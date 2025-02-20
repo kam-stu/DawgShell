@@ -10,18 +10,17 @@ struct ShellCommand ParseCommandLine(char* input) {
 
     token = strtok(input, " ");
 
-
     while (token != NULL) {
-        // Handles input redirection
+        // handles input redirection
         if (strcmp(token, "<") == 0) {
             token = strtok(NULL, " ");
             if (token) cmd.fileIn = strdup(token);
         } 
-        // Handles output redirection
+        // handles output redirection
         else if (strcmp(token, ">") == 0) {
             token = strtok(NULL, " ");
             if (token) cmd.fileOut = strdup(token);
-        } 
+        }
         else {
             cmd.args[arg_index++] = strdup(token);
         }

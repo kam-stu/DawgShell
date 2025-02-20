@@ -10,8 +10,8 @@ int main() {
     for (;;) {
         input = CommandPrompt();
 
-        if (!input) {
-            printf("Error: Failed to get input\n");
+        if (strlen(input) == 0) {
+            free(input);
             continue;
         }
 

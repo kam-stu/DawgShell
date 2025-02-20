@@ -1,8 +1,4 @@
 #include "ExecutePrompt.h"
-#include "ParseCommandLine.h"
-#include <unistd.h>
-#include <sys/types.h>
-#include <sys/wait.h>
 
 /*
 Struct Format: 
@@ -15,9 +11,10 @@ struct ShellCommand {
 */
 
 void ExecuteCommand(struct ShellCommand command) {
-    // Handle "cd" separately
+    // handle "cd" separately
     if (strcmp(command.args[0], "cd") == 0) {
         int num = chdir(command.args[1]);
+
         if (num < 0) {
             perror("Error 13");
         }
